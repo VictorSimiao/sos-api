@@ -25,6 +25,11 @@ public class Cliente {
     @NotBlank
     private String telefone;
 
+    @Deprecated
+    public Cliente(){
+
+    }
+
     public Cliente(@NotBlank String nome, @NotBlank @Email String email, @NotBlank String telefone) {
         this.nome = nome;
         this.email = email;
