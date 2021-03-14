@@ -1,5 +1,6 @@
 package br.com.victorreis.sosapi.domain.service;
 
+import br.com.victorreis.sosapi.domain.exception.ClienteNaoEncontradoException;
 import br.com.victorreis.sosapi.domain.model.Cliente;
 import br.com.victorreis.sosapi.domain.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,4 +14,9 @@ public class ClienteService {
     public Cliente salvar(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+
+    public Cliente buscarOuFalhar(Long id){
+        return clienteRepository.findById(id).orElseThrow(()-> new ClienteNaoEncontradoException(id));
+    }
+
 }

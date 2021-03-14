@@ -10,8 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.text.html.parser.Entity;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -30,8 +32,14 @@ public class ClienteController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ClienteResponse>>listar(){
+    public ResponseEntity<List<ClienteResponse>> listar() {
         List<Cliente> clientes = clienteRepository.findAll();
         return ResponseEntity.ok(ClienteResponse.toCollection(clientes));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ClienteResponse> buscar(@PathVariable Long id) {
+        Cliente cliente = clienteService.buscarOuFalhar(id);
+        return ResponseEntity.ok(new ClienteResponse(cliente));
     }
 }
