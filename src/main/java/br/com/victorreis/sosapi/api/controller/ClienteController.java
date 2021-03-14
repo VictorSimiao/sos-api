@@ -10,10 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.parser.Entity;
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -42,4 +40,11 @@ public class ClienteController {
         Cliente cliente = clienteService.buscarOuFalhar(id);
         return ResponseEntity.ok(new ClienteResponse(cliente));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> remover(@PathVariable Long id) {
+        clienteService.excluir(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
 }
