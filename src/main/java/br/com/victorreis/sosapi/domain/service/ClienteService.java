@@ -1,5 +1,6 @@
 package br.com.victorreis.sosapi.domain.service;
 
+import br.com.victorreis.sosapi.api.dto.request.ClienteAtualizaInput;
 import br.com.victorreis.sosapi.domain.exception.ClienteNaoEncontradoException;
 import br.com.victorreis.sosapi.domain.exception.EntidadeEmUsoException;
 import br.com.victorreis.sosapi.domain.model.Cliente;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 public class ClienteService {
@@ -36,4 +39,11 @@ public class ClienteService {
         }
     }
 
+    @Transactional
+    public Cliente atualizar(Long id, ClienteAtualizaInput cliente) {
+        Cliente clienteDB = buscarOuFalhar(id);
+        clienteDB.setNome(cliente.getNome());
+        clienteDB.setTelefone(cliente.getTelefone());
+        return clienteDB;
+    }
 }

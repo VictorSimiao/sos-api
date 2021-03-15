@@ -1,5 +1,6 @@
 package br.com.victorreis.sosapi.api.controller;
 
+import br.com.victorreis.sosapi.api.dto.request.ClienteAtualizaInput;
 import br.com.victorreis.sosapi.api.dto.request.ClienteInput;
 import br.com.victorreis.sosapi.api.dto.response.ClienteResponse;
 import br.com.victorreis.sosapi.domain.model.Cliente;
@@ -45,6 +46,12 @@ public class ClienteController {
     public ResponseEntity<?> remover(@PathVariable Long id) {
         clienteService.excluir(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteResponse> atualizar(@PathVariable Long id, @Valid @RequestBody ClienteAtualizaInput input) {
+        Cliente clienteAtualizado = clienteService.atualizar(id, input);
+        return ResponseEntity.ok(new ClienteResponse(clienteAtualizado));
     }
 
 }
