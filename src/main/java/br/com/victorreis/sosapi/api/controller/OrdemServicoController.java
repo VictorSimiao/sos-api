@@ -46,5 +46,10 @@ public class OrdemServicoController {
         return ResponseEntity.ok(new OrdemServicoResponse(ordemServico));
     }
 
+    @PutMapping("/{id}/finalizacao")
+    public ResponseEntity<OrdemServicoResponse> finalizar(@PathVariable Long id){
+        OrdemServico ordemServico = ordemServicoService.finalizar(id);
+        return ResponseEntity.ok(new OrdemServicoResponse(ordemServico));
+    }
 
 }
