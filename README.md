@@ -5,7 +5,7 @@
 
 ## Sobre o projeto
 <p align="center">Sos-api é uma <strong>API REST</strong> que consiste no processo de contratação e execução de serviço.
-Com objetivo de organizar as demandas para o atentimento, mantendo o fluxo de trabalho sob controle.</p>
+Com objetivo de organizar as demandas para o atendimento, mantendo o fluxo de trabalho sob controle.</p>
 
 ## Tabela de conteúdos
 
