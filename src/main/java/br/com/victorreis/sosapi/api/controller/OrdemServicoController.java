@@ -40,5 +40,11 @@ public class OrdemServicoController {
         return ResponseEntity.ok(OrdemServicoResponse.toCollection(ordemServicos));
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OrdemServicoResponse> buscar(@PathVariable Long id){
+        OrdemServico ordemServico = ordemServicoService.buscarOuFalhar(id);
+        return ResponseEntity.ok(new OrdemServicoResponse(ordemServico));
+    }
+
 
 }
