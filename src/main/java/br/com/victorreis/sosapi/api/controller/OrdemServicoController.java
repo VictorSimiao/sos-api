@@ -9,12 +9,10 @@ import br.com.victorreis.sosapi.domain.service.OrdemServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/ordens-servico")
@@ -24,13 +22,22 @@ public class OrdemServicoController {
     private OrdemServicoService ordemServicoService;
 
     @Autowired
+    private OrdemServicoRepository ordemServicoRepository;
+
+    @Autowired
     private ClienteRepository clienteRepository;
 
     @PostMapping
-    public ResponseEntity<OrdemServicoResponse> criar(@Valid @RequestBody OrdemServicoInput input){
+    public ResponseEntity<OrdemServicoResponse> criar(@Valid @RequestBody OrdemServicoInput input) {
         OrdemServico novaOrdemServico = input.toModel(clienteRepository);
         ordemServicoService.salvar(novaOrdemServico);
         return ResponseEntity.status(HttpStatus.CREATED).body(new OrdemServicoResponse(novaOrdemServico));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<OrdemServicoResponse>> listar() {
+        List<OrdemServico> ordemServicos = ordemServicoRepository.findAll();
+        return ResponseEntity.ok(OrdemServicoResponse.toCollection(ordemServicos));
     }
 
 

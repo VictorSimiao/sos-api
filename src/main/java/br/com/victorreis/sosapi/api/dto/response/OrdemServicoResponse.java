@@ -10,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class OrdemServicoResponse {
 
@@ -35,6 +37,10 @@ public class OrdemServicoResponse {
         this.status = ordemServico.getStatus();
         this.dataAbertura = ordemServico.getDataAbertura();
         this.dataFinalizacao = ordemServico.getDataFinalizacao();
+    }
+
+    public static List<OrdemServicoResponse> toCollection(List<OrdemServico> ordemServicos){
+        return ordemServicos.stream().map(OrdemServicoResponse::new).collect(Collectors.toList());
     }
 
     public Long getId() {
