@@ -19,7 +19,7 @@ Com objetivo de organizar as demandas para o atentimento, mantendo o fluxo de tr
 *
 
 ## Como usar
-###Pre requesitos
+### Pre requesitos
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
 - Java 11
 - Maven 
@@ -58,6 +58,6 @@ Execute o método main na classe br.com.victorreis.sosapi.SosApiApplication
 
 
 ---
-##Desenvolvido por
+## Autor
 Feito com ❤️ por [Victor Simião](https://github.com/VictorSimiao) 👋🏽 Entre em contato!
 [![Linkedin Badge](https://img.shields.io/badge/-Victor-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/victorsreis/)](https://www.linkedin.com/in/victorsreis/) 
