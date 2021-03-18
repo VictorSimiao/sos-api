@@ -1,7 +1,9 @@
 
 <div align="center">
  <h1>Sos-api</h1>
+ <img alt="GitHub" src="https://img.shields.io/github/license/VictorSimiao/sos-api">
 </div>
+
 
 ## Sobre o projeto
 <p align="center">Sos-api é uma <strong>API REST</strong> que consiste no processo de contratação e execução de serviço.
