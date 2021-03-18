@@ -18,7 +18,7 @@ Com objetivo de organizar as demandas para o atendimento, mantendo o fluxo de tr
     * [Executar o projeto](#executar-o-projeto)
 * [Features](#features)    
 * [Tecnologias](#tecnologias-utilizadas)
-*
+* [Autor](#autor)
 
 ## Como usar
 ### Pre requesitos
